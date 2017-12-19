@@ -7,11 +7,16 @@
 
 void printBoard(int **board, const int n)
 {
-        for (int r = 0; r < n; ++r) {
-                for (int c = 0; c < n; ++c) {
-                        if (board[r][c]) {
+        for (int r = 0; r < n; ++r)
+        {
+                for (int c = 0; c < n; ++c)
+                {
+                        if (board[r][c])
+                        {
                                 printf(" %c ", CHAR_QUEEN);
-                        } else {
+                        }
+                        else
+                        {
                                 printf(" %c ", CHAR_NONE);
                         }
                 }

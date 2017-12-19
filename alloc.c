@@ -6,14 +6,17 @@ int** allocBoard(const int size)
 {
         int **board = (int **) calloc(size, sizeof(int *));
 
-        if (!board) {
+        if (!board)
+        {
                 return NULL;
         }
 
-        for (int i = 0; i < size; ++i) {
+        for (int i = 0; i < size; ++i)
+        {
                 board[i] = (int *) calloc(size, sizeof(int *));
 
-                if (!board[i]) {
+                if (!board[i])
+                {
                         return NULL;
                 }
         }
@@ -23,7 +26,8 @@ int** allocBoard(const int size)
 
 void freeBoard(int **board, const int size)
 {
-        for (int i = 0; i < size; ++i) {
+        for (int i = 0; i < size; ++i)
+        {
                 free(board[i]);
         }
 
