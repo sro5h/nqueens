@@ -23,4 +23,6 @@ void printBoard(int **board, const int n)
 
                 printf("\n");
         }
+
+        printf("\n");
 }

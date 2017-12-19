@@ -50,13 +50,7 @@ int main(int argc, char *argv[])
                 return -1;
         }
 
-        if (!solve(0, board, BOARD_SIZE))
-        {
-                printf("No solution found\n");
-                return 0;
-        }
-
-        printBoard(board, BOARD_SIZE);
+        solve(0, board, BOARD_SIZE);
 
         freeBoard(board, BOARD_SIZE);
 
@@ -66,8 +60,9 @@ int main(int argc, char *argv[])
 int solve(int row, int ** const board, const int size)
 {
         // Return true if n queens could be placed
-        if (row >= size)
+        if (row == size)
         {
+                printBoard(board, size);
                 return 1;
         }
 
@@ -77,11 +72,7 @@ int solve(int row, int ** const board, const int size)
                 {
                         board[row][c] = 1;
 
-                        // Go back up the recursion tree
-                        if (solve(row + 1, board, size))
-                        {
-                                return 1;
-                        }
+                        solve(row + 1, board, size);
 
                         board[row][c] = 0;
                 }
