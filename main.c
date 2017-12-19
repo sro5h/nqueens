@@ -6,7 +6,7 @@
 
 #define BOARD_SIZE 4
 
-int isSafe(int row, int col, int **array, int n)
+int isSafe(const int row, const int col, int ** const array, const int n)
 {
         // Check above
         for (int r = 0; r < row; ++r) {
@@ -32,6 +32,7 @@ int isSafe(int row, int col, int **array, int n)
         return 1;
 }
 
+int solve(int row, int ** const board, const int size);
 
 int main(int argc, char *argv[])
 {
@@ -42,18 +43,37 @@ int main(int argc, char *argv[])
                 return -1;
         }
 
-        board[0][1] = 1;
+        if (!solve(0, board, BOARD_SIZE)) {
+                printf("No solution found\n");
+                return 0;
+        }
 
         printBoard(board, BOARD_SIZE);
 
-        if (isSafe(1, 3, board, BOARD_SIZE)) {
-                board[1][3] = 1;
-                printBoard(board, BOARD_SIZE);
-        } else {
-                printf("Not safe!\n");
+        freeBoard(board, BOARD_SIZE);
+
+        return 0;
+}
+
+int solve(int row, int ** const board, const int size)
+{
+        // Return true if n queens could be placed
+        if (row >= size) {
+                return 1;
         }
 
-        freeBoard(board, BOARD_SIZE);
+        for (int c = 0; c < size; ++c) {
+                if (isSafe(row, c, board, size)) {
+                        board[row][c] = 1;
+
+                        // Go back up the recursion tree
+                        if (solve(row + 1, board, size)) {
+                                return 1;
+                        }
+
+                        board[row][c] = 0;
+                }
+        }
 
         return 0;
 }
