@@ -1,7 +1,7 @@
 #ifndef _ALLOC_H_
 #define _ALLOC_H_
 
-int** allocBoard(const int size);
-void freeBoard(int** board, const int size);
+int** allocBoard(const int iSize);
+void freeBoard(int** ppiBoard, const int iSize);
 
 #endif // _ALLOC_H_

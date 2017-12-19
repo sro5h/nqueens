@@ -8,17 +8,17 @@
 
 int main(int argc, char *argv[])
 {
-        int **board = allocBoard(BOARD_SIZE);
+        int **ppiBoard = allocBoard(BOARD_SIZE);
 
-        if (!board)
+        if (!ppiBoard)
         {
                 printf("Allocation failed, aborting...\n");
                 return -1;
         }
 
-        solve(0, board, BOARD_SIZE);
+        solve(0, ppiBoard, BOARD_SIZE);
 
-        freeBoard(board, BOARD_SIZE);
+        freeBoard(ppiBoard, BOARD_SIZE);
 
         return 0;
 }

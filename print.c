@@ -5,13 +5,13 @@
 
 #include <stdio.h>
 
-void printBoard(int **board, const int n)
+void printBoard(int **ppiBoard, const int iN)
 {
-        for (int r = 0; r < n; ++r)
+        for (int iR = 0; iR < iN; ++iR)
         {
-                for (int c = 0; c < n; ++c)
+                for (int iC = 0; iC < iN; ++iC)
                 {
-                        if (board[r][c])
+                        if (ppiBoard[iR][iC])
                         {
                                 printf(" %c ", CHAR_QUEEN);
                         }

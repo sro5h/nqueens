@@ -2,34 +2,34 @@
 
 #include <stdlib.h>
 
-int** allocBoard(const int size)
+int** allocBoard(const int iSize)
 {
-        int **board = (int **) calloc(size, sizeof(int *));
+        int **ppiBoard = (int **) calloc(iSize, sizeof(int *));
 
-        if (!board)
+        if (!ppiBoard)
         {
                 return NULL;
         }
 
-        for (int i = 0; i < size; ++i)
+        for (int i = 0; i < iSize; ++i)
         {
-                board[i] = (int *) calloc(size, sizeof(int *));
+                ppiBoard[i] = (int *) calloc(iSize, sizeof(int *));
 
-                if (!board[i])
+                if (!ppiBoard[i])
                 {
                         return NULL;
                 }
         }
 
-        return board;
+        return ppiBoard;
 }
 
-void freeBoard(int **board, const int size)
+void freeBoard(int **ppiBoard, const int iSize)
 {
-        for (int i = 0; i < size; ++i)
+        for (int i = 0; i < iSize; ++i)
         {
-                free(board[i]);
+                free(ppiBoard[i]);
         }
 
-        free(board);
+        free(ppiBoard);
 }

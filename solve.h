@@ -1,6 +1,6 @@
 #ifndef _SOLVE_H_
 #define _SOLVE_H_
 
-int solve(const int row, int ** const board, const int size);
+int solve(const int iRow, int ** const ppiBoard, const int iSize);
 
 #endif // _SOLVE_H_

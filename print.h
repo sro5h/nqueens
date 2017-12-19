@@ -1,6 +1,6 @@
 #ifndef _PRINT_H_
 #define _PRINT_H_
 
-void printBoard(int **board, const int n);
+void printBoard(int **ppiBoard, const int iN);
 
 #endif // _PRINT_H_
