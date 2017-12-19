@@ -4,8 +4,8 @@ CFLAGS=-I.
 
 PROJECT = nqueens
 
-HEADERS = alloc.h print.h
-SOURCES = main.c alloc.c print.c
+HEADERS = alloc.h print.h solve.h
+SOURCES = main.c alloc.c print.c solve.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
 
 all: $(PROJECT)
