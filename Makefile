@@ -13,7 +13,7 @@ all: $(PROJECT)
 $(PROJECT): $(OBJECTS)
 	$(CC) -o $(PROJECT) $(OBJECTS) $(CFLAGS)
 
-%.o: $(SOURCES) $(HEADERS)
+$(OBJECTS): $(SOURCES) $(HEADERS)
 	$(CC) -c $(SOURCES) $(CFLAGS)
 
 clean:
