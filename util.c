@@ -1,8 +1,8 @@
 #include "util.h"
 
-void gotoxy(int x, int y)
+void gotoxy(int iX, int iY)
 {
-        printf("%c[%d;%df", 0x1B, y, x);
+        printf("%c[%d;%df", 0x1B, iY, iX);
 }
 
 void clrscr()

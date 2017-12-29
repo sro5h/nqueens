@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void gotoxy(int x, int y);
+void gotoxy(int iX, int iY);
 void clrscr();
 
 #endif // _UTIL_H_
