@@ -1,5 +1,7 @@
 #include "alloc.h"
 #include "solve.h"
+#include "print.h"
+#include "util.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -16,7 +18,10 @@ int main(int argc, char *argv[])
                 return -1;
         }
 
-        solve(0, ppiBoard, BOARD_SIZE);
+        clrscr();
+
+        printMenu();
+        printStatus();
 
         freeBoard(ppiBoard, BOARD_SIZE);
 

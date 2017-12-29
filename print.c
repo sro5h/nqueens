@@ -1,9 +1,15 @@
 #include "print.h"
+#include "util.h"
+
+#include <stdio.h>
 
 #define CHAR_NONE  '0'
 #define CHAR_QUEEN '1'
 
-#include <stdio.h>
+#define SCREEN_HEIGHT 25
+#define SCREEN_WIDTH 80
+#define MENU_HEIGHT 3
+#define STATUS_HEIGHT 3
 
 void printBoard(int **ppiBoard, const int iN)
 {
@@ -25,4 +31,22 @@ void printBoard(int **ppiBoard, const int iN)
         }
 
         printf("\n");
+}
+
+void printMenu()
+{
+        gotoxy(0, 0);
+
+        printf("--------------------------------------------------------------------------------\n");
+        printf("|                                    nQueens                                   |\n");
+        printf("--------------------------------------------------------------------------------\n");
+}
+
+void printStatus()
+{
+        gotoxy(0, SCREEN_HEIGHT - STATUS_HEIGHT);
+
+        printf("--------------------------------------------------------------------------------\n");
+        printf("| Status: ready.                                                               |\n");
+        printf("--------------------------------------------------------------------------------\n");
 }
