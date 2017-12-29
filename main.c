@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 
         printMenu();
         printStatus();
+        printBoard(ppiBoard, BOARD_SIZE);
 
         freeBoard(ppiBoard, BOARD_SIZE);
 

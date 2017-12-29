@@ -7,14 +7,19 @@
 #define CHAR_QUEEN '1'
 
 #define SCREEN_HEIGHT 25
-#define SCREEN_WIDTH 80
-#define MENU_HEIGHT 3
+#define SCREEN_WIDTH  80
+#define MENU_HEIGHT   3
 #define STATUS_HEIGHT 3
 
 void printBoard(int **ppiBoard, const int iN)
 {
+        const int iStartX = (SCREEN_WIDTH - 3 * iN) / 2;
+        const int iStartY = (SCREEN_HEIGHT - iN) / 2;
+
         for (int iR = 0; iR < iN; ++iR)
         {
+                gotoxy(iStartX, iStartY + iR);
+
                 for (int iC = 0; iC < iN; ++iC)
                 {
                         if (ppiBoard[iR][iC])
@@ -26,11 +31,7 @@ void printBoard(int **ppiBoard, const int iN)
                                 printf(" %c ", CHAR_NONE);
                         }
                 }
-
-                printf("\n");
         }
-
-        printf("\n");
 }
 
 void printMenu()
