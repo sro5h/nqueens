@@ -8,7 +8,7 @@
 
 #define SCREEN_HEIGHT 25
 #define SCREEN_WIDTH  80
-#define MENU_HEIGHT   3
+#define MENU_HEIGHT   4
 #define STATUS_HEIGHT 3
 
 void printBoard(int **ppiBoard, const int iN)
@@ -41,6 +41,7 @@ void printMenu()
         printf("--------------------------------------------------------------------------------\n");
         printf("|                                    nQueens                                   |\n");
         printf("--------------------------------------------------------------------------------\n");
+        printf(" [e]xit   [s]top calculation   [s]avemode   [c]hange filename                   \n");
 }
 
 void printStatus()
