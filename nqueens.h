@@ -20,8 +20,11 @@ struct nQueens
 
         enum AppMode eAppMode;
         enum SaveMode eSaveMode;
+        int iShouldClose;
 
         int iSolutionCount;
 };
+
+void init(struct nQueens * const pnQueens);
 
 #endif // _NQUEENS_H_

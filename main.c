@@ -12,8 +12,10 @@
 int main(int argc, char *argv[])
 {
         struct nQueens snQueens;
-        snQueens.ppiBoard = allocBoard(BOARD_SIZE);
+        init(&snQueens);
+
         snQueens.iSize = BOARD_SIZE;
+        snQueens.ppiBoard = allocBoard(BOARD_SIZE);
 
         if (!snQueens.ppiBoard)
         {
@@ -21,11 +23,16 @@ int main(int argc, char *argv[])
                 return -1;
         }
 
-        clrscr();
+        while (!snQueens.iShouldClose)
+        {
+                clrscr();
 
-        printMenu();
-        printStatus();
-        printBoard(snQueens.ppiBoard, snQueens.iSize);
+                printMenu();
+                printBoard(snQueens.ppiBoard, snQueens.iSize);
+                printStatus();
+
+                getchar();
+        }
 
         freeBoard(snQueens.ppiBoard, snQueens.iSize);
 
