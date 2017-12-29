@@ -1,5 +1,6 @@
 #include "print.h"
 #include "util.h"
+#include "nqueens.h"
 
 #include <stdio.h>
 
@@ -41,14 +42,28 @@ void printMenu()
         printf("--------------------------------------------------------------------------------\n");
         printf("|                                    nQueens                                   |\n");
         printf("--------------------------------------------------------------------------------\n");
-        printf(" [e]xit   [s]top calculation   [s]avemode   [c]hange filename                   \n");
+        printf(" [e]xit   [s]top calculation   s[a]ve mode   change [f]ilename                  \n");
 }
 
-void printStatus()
+void printStatus(const struct nQueens * const pnQueens)
 {
         gotoxy(0, SCREEN_HEIGHT - STATUS_HEIGHT);
 
         printf("--------------------------------------------------------------------------------\n");
-        printf("| Status: ready.                                                               |\n");
+
+        printf("| Status: ");
+        printf("save mode ");
+
+        if (pnQueens->eSaveMode == SaveOn)
+        {
+                printf("(on)  ");
+        }
+        else
+        {
+                printf("(off) ");
+        }
+
+        printf("\n");
+
         printf("--------------------------------------------------------------------------------\n");
 }
