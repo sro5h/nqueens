@@ -18,8 +18,8 @@ struct nQueens
         int** ppiBoard;
         int iSize;
 
-        AppMode eAppMode;
-        SaveMode eSaveMode;
+        enum AppMode eAppMode;
+        enum SaveMode eSaveMode;
 
         int iSolutionCount;
 };

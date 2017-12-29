@@ -2,6 +2,7 @@
 #include "solve.h"
 #include "print.h"
 #include "util.h"
+#include "nqueens.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,9 +11,11 @@
 
 int main(int argc, char *argv[])
 {
-        int **ppiBoard = allocBoard(BOARD_SIZE);
+        struct nQueens snQueens;
+        snQueens.ppiBoard = allocBoard(BOARD_SIZE);
+        snQueens.iSize = BOARD_SIZE;
 
-        if (!ppiBoard)
+        if (!snQueens.ppiBoard)
         {
                 printf("Allocation failed, aborting...\n");
                 return -1;
@@ -22,9 +25,9 @@ int main(int argc, char *argv[])
 
         printMenu();
         printStatus();
-        printBoard(ppiBoard, BOARD_SIZE);
+        printBoard(snQueens.ppiBoard, snQueens.iSize);
 
-        freeBoard(ppiBoard, BOARD_SIZE);
+        freeBoard(snQueens.ppiBoard, snQueens.iSize);
 
         return 0;
 }
