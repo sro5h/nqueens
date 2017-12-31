@@ -4,8 +4,8 @@
 
 #include <stdio.h>
 
-#define CHAR_NONE  '0'
-#define CHAR_QUEEN '1'
+#define CHAR_NONE  '#'
+#define CHAR_QUEEN 'Q'
 
 #define SCREEN_HEIGHT 25
 #define SCREEN_WIDTH  80
@@ -25,7 +25,7 @@ void print(const struct nQueens * const pnQueens)
 
 void printBoard(int ** const ppiBoard, const int iN)
 {
-        const int iStartX = (SCREEN_WIDTH - 3 * iN) / 2;
+        const int iStartX = (SCREEN_WIDTH - 2 * iN) / 2;
         const int iStartY = (SCREEN_HEIGHT - iN) / 2;
 
         for (int iR = 0; iR < iN; ++iR)
@@ -36,11 +36,11 @@ void printBoard(int ** const ppiBoard, const int iN)
                 {
                         if (ppiBoard[iR][iC])
                         {
-                                printf(" %c ", CHAR_QUEEN);
+                                printf(" %c", CHAR_QUEEN);
                         }
                         else
                         {
-                                printf(" %c ", CHAR_NONE);
+                                printf(" %c", CHAR_NONE);
                         }
                 }
         }
