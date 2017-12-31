@@ -57,5 +57,9 @@ void handleInput(char cKey, struct nQueens * const pnQueens)
                 case 'a':
                         pnQueens->eSaveMode = pnQueens->eSaveMode == SaveOn ? SaveOff : SaveOn;
                         break;
+
+                case 'm':
+                        pnQueens->eAppMode = pnQueens->eAppMode == Step ? Continuous : Step;
+                        break;
         }
 }

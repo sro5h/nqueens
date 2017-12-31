@@ -42,7 +42,7 @@ void printMenu()
         printf(" ------------------------------------------------------------------------------\n");
         printf(" |                                   nQueens                                  |\n");
         printf(" ------------------------------------------------------------------------------\n");
-        printf("  [e]xit   [s]top calculation   s[a]ve mode   change [f]ilename                \n");
+        printf("  [e]xit   [s]top   s[a]ve mode   app [m]ode   change [f]ilename               \n");
 }
 
 void printStatus(const struct nQueens * const pnQueens)
@@ -52,15 +52,27 @@ void printStatus(const struct nQueens * const pnQueens)
         printf(" ------------------------------------------------------------------------------\n");
 
         printf(" | Status: ");
-        printf("save mode ");
 
+        /* Save mode status */
+        printf("save mode ");
         if (pnQueens->eSaveMode == SaveOn)
         {
-                printf("(on)  ");
+                printf("(on)   ");
         }
         else
         {
-                printf("(off) ");
+                printf("(off)  ");
+        }
+
+        /* App mode status */
+        printf("app mode ");
+        if (pnQueens->eAppMode == Step)
+        {
+                printf("(Step)  ");
+        }
+        else
+        {
+                printf("(Cont)  ");
         }
 
         printf("\n");
