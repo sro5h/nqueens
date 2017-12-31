@@ -13,8 +13,8 @@ void awaitInput(struct nQueens * const pnQueens)
                 pnQueens->iShouldClose = 1;
                 break;
 
-        case 's':
-                pnQueens->iShouldClose = 1;
+        case 'b':
+                pnQueens->iShouldSolve = 1;
                 break;
 
         case 'a':
@@ -27,7 +27,28 @@ void awaitInput(struct nQueens * const pnQueens)
         }
 }
 
-int checkForExit(struct nQueens * const pnQueens)
+void awaitInputSolve(struct nQueens * const pnQueens)
+{
+        char cKey = _getch();
+
+        switch (cKey)
+        {
+        case 'e':
+                pnQueens->iShouldSolve = 0;
+                pnQueens->iShouldClose = 1;
+                break;
+
+        case 's':
+                pnQueens->iShouldSolve = 0;
+                break;
+
+        /* Continue if a key is hit */
+        default:
+                break;
+        }
+}
+
+int checkInputSolve(struct nQueens * const pnQueens)
 {
         if (_kbhit())
         {
@@ -36,10 +57,12 @@ int checkForExit(struct nQueens * const pnQueens)
                 switch (cKey)
                 {
                 case 'e':
+                        pnQueens->iShouldSolve = 0;
                         pnQueens->iShouldClose = 1;
                         return KEY_STOP;
 
                 case 's':
+                        pnQueens->iShouldSolve = 0;
                         return KEY_STOP;
                 }
         }

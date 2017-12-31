@@ -21,6 +21,7 @@ struct nQueens
         enum AppMode eAppMode;
         enum SaveMode eSaveMode;
         int iShouldClose;
+        int iShouldSolve;
 
         int iSolutionCount;
 };

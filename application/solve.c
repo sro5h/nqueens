@@ -1,25 +1,27 @@
+#include "solve.h"
 #include "print.h"
 
 int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iN);
 
-int solve(const int iRow, int ** const ppiBoard, const int iSize)
+int solve(const int iRow, struct nQueens * const pnQueens)
 {
         // Return true if n queens could be placed
-        if (iRow == iSize)
+        if (iRow == pnQueens->iSize)
         {
-                printBoard(ppiBoard, iSize);
+                printBoard(pnQueens->ppiBoard, pnQueens->iSize);
+                awaitInputSolve(pnQueens);
                 return 1;
         }
 
-        for (int iC = 0; iC < iSize; ++iC)
+        for (int iC = 0; iC < pnQueens->iSize; ++iC)
         {
-                if (isSafe(iRow, iC, ppiBoard, iSize))
+                if (isSafe(iRow, iC, pnQueens->ppiBoard, pnQueens->iSize))
                 {
-                        ppiBoard[iRow][iC] = 1;
+                        pnQueens->ppiBoard[iRow][iC] = 1;
 
-                        solve(iRow + 1, ppiBoard, iSize);
+                        solve(iRow + 1, pnQueens);
 
-                        ppiBoard[iRow][iC] = 0;
+                        pnQueens->ppiBoard[iRow][iC] = 0;
                 }
         }
 

@@ -10,6 +10,7 @@ void init(struct nQueens * const pnQueens)
         pnQueens->eAppMode = Step;
         pnQueens->eSaveMode = SaveOff;
         pnQueens->iShouldClose = 0;
+        pnQueens->iShouldSolve = 0;
 
         pnQueens->iSolutionCount = 0;
 }

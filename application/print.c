@@ -35,14 +35,22 @@ void printBoard(int **ppiBoard, const int iN)
         }
 }
 
-void printMenu()
+void printMenu(int algorithmRunning)
 {
         _gotoxy(0, 0);
 
         printf(" ------------------------------------------------------------------------------\n");
         printf(" |                                   nQueens                                  |\n");
         printf(" ------------------------------------------------------------------------------\n");
-        printf("  [e]xit   [s]top   s[a]ve mode   app [m]ode   change [f]ilename               \n");
+
+        if (algorithmRunning)
+        {
+                printf("  [e]xit   [s]top                                                              \n");
+        }
+        else
+        {
+                printf("  [e]xit   [b]egin   s[a]ve mode   app [m]ode   change [f]ile                  \n");
+        }
 }
 
 void printStatus(const struct nQueens * const pnQueens)

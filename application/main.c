@@ -28,9 +28,13 @@ int main(int argc, char *argv[])
         {
                 _clrscr();
 
-                printMenu();
-                printBoard(snQueens.ppiBoard, snQueens.iSize);
+                printMenu(snQueens.iShouldSolve);
                 printStatus(&snQueens);
+
+                if (snQueens.iShouldSolve)
+                {
+                        solve(0, &snQueens);
+                }
 
                 awaitInput(&snQueens);
         }
