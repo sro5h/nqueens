@@ -12,6 +12,17 @@
 #define MENU_HEIGHT   4
 #define STATUS_HEIGHT 3
 
+void printMenu(int iSolving);
+void printStatus(const struct nQueens * const pnQueens);
+
+void print(const struct nQueens * const pnQueens)
+{
+        _clrscr();
+
+        printMenu(pnQueens->iShouldSolve);
+        printStatus(pnQueens);
+}
+
 void printBoard(int **ppiBoard, const int iN)
 {
         const int iStartX = (SCREEN_WIDTH - 3 * iN) / 2;

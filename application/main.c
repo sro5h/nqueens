@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
-#include <utilities.h>
 #include "nqueens.h"
 #include "alloc.h"
 #include "solve.h"
@@ -26,17 +25,19 @@ int main(int argc, char *argv[])
 
         while (!snQueens.iShouldClose)
         {
+                print(&snQueens);
+
                 if (snQueens.iShouldSolve)
                 {
                         solve(0, &snQueens);
+
+                        // Prevent from solving again if all solutions were found
+                        snQueens.iShouldSolve = 0;
                 }
-
-                _clrscr();
-
-                printMenu(snQueens.iShouldSolve);
-                printStatus(&snQueens);
-
-                awaitInput(&snQueens);
+                else
+                {
+                        awaitInput(&snQueens);
+                }
         }
 
         freeBoard(snQueens.ppiBoard, snQueens.iSize);
