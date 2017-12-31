@@ -1,11 +1,14 @@
+#include <stdio.h>
 #include <conio.h>
 #include "input.h"
+#include "print.h"
 
 #define KEY_STOP 1
 
 void awaitInput(struct nQueens * const pnQueens)
 {
         char cKey = _getch();
+        int iNewSize;
 
         switch (cKey)
         {
@@ -23,6 +26,26 @@ void awaitInput(struct nQueens * const pnQueens)
 
         case 'm':
                 pnQueens->eAppMode = pnQueens->eAppMode == Step ? Continuous : Step;
+                break;
+
+        case 's':
+                do
+                {
+                        printInputScreen("  Enter new board size: ", pnQueens);
+                        scanf("%d", &iNewSize);
+                }
+                while (!(iNewSize >= 4 && iNewSize <= 12));
+
+                freeBoard(pnQueens->ppiBoard, pnQueens->iSize);
+                pnQueens->iSize = iNewSize;
+                pnQueens->ppiBoard = allocBoard(pnQueens->iSize);
+
+                // Terminate the program if allocation failed
+                if (pnQueens->ppiBoard == NULL)
+                {
+                        pnQueens->iShouldClose = 1;
+                }
+
                 break;
         }
 }

@@ -12,6 +12,7 @@
 #define MENU_HEIGHT   4
 #define STATUS_HEIGHT 3
 
+void printHeader();
 void printMenu(int iSolving);
 void printStatus(const struct nQueens * const pnQueens);
 
@@ -21,6 +22,15 @@ void print(const struct nQueens * const pnQueens)
 
         printMenu(pnQueens->iShouldSolve);
         printStatus(pnQueens);
+}
+
+void printInputScreen(const char *pcMessage, const struct nQueens * const pnQueens)
+{
+        _clrscr();
+
+        printStatus(pnQueens);
+        printHeader();
+        printf("  %s", pcMessage);
 }
 
 void printBoard(int ** const ppiBoard, const int iN)
@@ -46,13 +56,18 @@ void printBoard(int ** const ppiBoard, const int iN)
         }
 }
 
-void printMenu(int algorithmRunning)
+void printHeader()
 {
         _gotoxy(0, 0);
 
         printf(" ------------------------------------------------------------------------------\n");
         printf(" |                                   nQueens                                  |\n");
         printf(" ------------------------------------------------------------------------------\n");
+}
+
+void printMenu(int algorithmRunning)
+{
+        printHeader();
 
         if (algorithmRunning)
         {
@@ -60,7 +75,7 @@ void printMenu(int algorithmRunning)
         }
         else
         {
-                printf("  [e]xit   [b]egin   s[a]ve mode   app [m]ode   change [f]ile                  \n");
+                printf("  [e]xit   [b]egin   s[a]ve mode   app [m]ode   change [f]ile   board [s]ize   \n");
         }
 }
 
@@ -93,6 +108,9 @@ void printStatus(const struct nQueens * const pnQueens)
         {
                 printf("(Cont)  ");
         }
+
+        /* Board size status */
+        printf("board size (%d)   ", pnQueens->iSize);
 
         printf("\n");
 

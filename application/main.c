@@ -42,7 +42,10 @@ int main(int argc, char *argv[])
                 }
         }
 
-        freeBoard(snQueens.ppiBoard, snQueens.iSize);
+        if (snQueens.ppiBoard)
+        {
+                freeBoard(snQueens.ppiBoard, snQueens.iSize);
+        }
 
         return 0;
 }
