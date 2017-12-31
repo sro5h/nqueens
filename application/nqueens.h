@@ -15,7 +15,7 @@ enum SaveMode
 
 struct nQueens
 {
-        int** ppiBoard;
+        int **ppiBoard;
         int iSize;
 
         enum AppMode eAppMode;
@@ -27,5 +27,6 @@ struct nQueens
 };
 
 void init(struct nQueens * const pnQueens);
+void resetBoard(int ** const ppiBoard, const int iSize);
 
 #endif // _NQUEENS_H_

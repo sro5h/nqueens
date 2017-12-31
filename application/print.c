@@ -23,7 +23,7 @@ void print(const struct nQueens * const pnQueens)
         printStatus(pnQueens);
 }
 
-void printBoard(int **ppiBoard, const int iN)
+void printBoard(int ** const ppiBoard, const int iN)
 {
         const int iStartX = (SCREEN_WIDTH - 3 * iN) / 2;
         const int iStartY = (SCREEN_HEIGHT - iN) / 2;

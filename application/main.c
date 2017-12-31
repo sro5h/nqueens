@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
 
                         // Prevent from solving again if all solutions were found
                         snQueens.iShouldSolve = 0;
+
+                        resetBoard(snQueens.ppiBoard, snQueens.iSize);
                 }
                 else
                 {
