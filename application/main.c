@@ -54,7 +54,7 @@ void handleInput(char cKey, struct nQueens * const pnQueens)
                         pnQueens->iShouldClose = 1;
                         break;
 
-                case 'c':
+                case 'a':
                         pnQueens->eSaveMode = pnQueens->eSaveMode == SaveOn ? SaveOff : SaveOn;
                         break;
         }
