@@ -10,6 +10,13 @@ int solve(const int iRow, struct nQueens * const pnQueens)
         {
                 printBoard(pnQueens->ppiBoard, pnQueens->iSize);
                 awaitInputSolve(pnQueens);
+
+                // Is the user requesting to stop solving
+                if (!pnQueens->iShouldSolve)
+                {
+                        return -1;
+                }
+
                 return 1;
         }
 
@@ -19,7 +26,11 @@ int solve(const int iRow, struct nQueens * const pnQueens)
                 {
                         pnQueens->ppiBoard[iRow][iC] = 1;
 
-                        solve(iRow + 1, pnQueens);
+                        // Propagate the stop request down the recursion tree
+                        if (solve(iRow + 1, pnQueens) == -1)
+                        {
+                                return -1;
+                        }
 
                         pnQueens->ppiBoard[iRow][iC] = 0;
                 }

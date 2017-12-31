@@ -26,15 +26,15 @@ int main(int argc, char *argv[])
 
         while (!snQueens.iShouldClose)
         {
-                _clrscr();
-
-                printMenu(snQueens.iShouldSolve);
-                printStatus(&snQueens);
-
                 if (snQueens.iShouldSolve)
                 {
                         solve(0, &snQueens);
                 }
+
+                _clrscr();
+
+                printMenu(snQueens.iShouldSolve);
+                printStatus(&snQueens);
 
                 awaitInput(&snQueens);
         }
