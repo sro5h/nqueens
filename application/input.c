@@ -45,7 +45,6 @@ void awaitInput(struct nQueens * const pnQueens)
                 {
                         pnQueens->iShouldClose = 1;
                 }
-
                 break;
         }
 }
