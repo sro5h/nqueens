@@ -2,14 +2,13 @@
 #include <stdio.h>
 #include <conio.h>
 #include <utilities.h>
+#include "nqueens.h"
 #include "alloc.h"
 #include "solve.h"
 #include "print.h"
-#include "nqueens.h"
+#include "input.h"
 
 #define BOARD_SIZE 4
-
-void handleInput(char cKey, struct nQueens * const pnQueens);
 
 int main(int argc, char *argv[])
 {
@@ -33,33 +32,10 @@ int main(int argc, char *argv[])
                 printBoard(snQueens.ppiBoard, snQueens.iSize);
                 printStatus(&snQueens);
 
-                char c = _getch();
-                handleInput(c, &snQueens);
+                awaitInput(&snQueens);
         }
 
         freeBoard(snQueens.ppiBoard, snQueens.iSize);
 
         return 0;
-}
-
-void handleInput(char cKey, struct nQueens * const pnQueens)
-{
-        switch (cKey)
-        {
-                case 'e':
-                        pnQueens->iShouldClose = 1;
-                        break;
-
-                case 's':
-                        pnQueens->iShouldClose = 1;
-                        break;
-
-                case 'a':
-                        pnQueens->eSaveMode = pnQueens->eSaveMode == SaveOn ? SaveOff : SaveOn;
-                        break;
-
-                case 'm':
-                        pnQueens->eAppMode = pnQueens->eAppMode == Step ? Continuous : Step;
-                        break;
-        }
 }

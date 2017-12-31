@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="alloc.c" />
+    <ClCompile Include="input.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="nqueens.c" />
     <ClCompile Include="print.c" />
@@ -27,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alloc.h" />
+    <ClInclude Include="input.h" />
     <ClInclude Include="nqueens.h" />
     <ClInclude Include="print.h" />
     <ClInclude Include="solve.h" />
