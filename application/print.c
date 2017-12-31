@@ -1,5 +1,5 @@
+#include <utilities.h>
 #include "print.h"
-#include "util.h"
 #include "nqueens.h"
 
 #include <stdio.h>
@@ -19,7 +19,7 @@ void printBoard(int **ppiBoard, const int iN)
 
         for (int iR = 0; iR < iN; ++iR)
         {
-                gotoxy(iStartX, iStartY + iR);
+                _gotoxy(iStartX, iStartY + iR);
 
                 for (int iC = 0; iC < iN; ++iC)
                 {
@@ -37,21 +37,21 @@ void printBoard(int **ppiBoard, const int iN)
 
 void printMenu()
 {
-        gotoxy(0, 0);
+        _gotoxy(0, 0);
 
-        printf("--------------------------------------------------------------------------------\n");
-        printf("|                                    nQueens                                   |\n");
-        printf("--------------------------------------------------------------------------------\n");
-        printf(" [e]xit   [s]top calculation   s[a]ve mode   change [f]ilename                  \n");
+        printf(" ------------------------------------------------------------------------------\n");
+        printf(" |                                   nQueens                                  |\n");
+        printf(" ------------------------------------------------------------------------------\n");
+        printf("  [e]xit   [s]top calculation   s[a]ve mode   change [f]ilename                \n");
 }
 
 void printStatus(const struct nQueens * const pnQueens)
 {
-        gotoxy(0, SCREEN_HEIGHT - STATUS_HEIGHT);
+        _gotoxy(0, SCREEN_HEIGHT - STATUS_HEIGHT);
 
-        printf("--------------------------------------------------------------------------------\n");
+        printf(" ------------------------------------------------------------------------------\n");
 
-        printf("| Status: ");
+        printf(" | Status: ");
         printf("save mode ");
 
         if (pnQueens->eSaveMode == SaveOn)
@@ -65,5 +65,5 @@ void printStatus(const struct nQueens * const pnQueens)
 
         printf("\n");
 
-        printf("--------------------------------------------------------------------------------\n");
+        printf(" ------------------------------------------------------------------------------");
 }

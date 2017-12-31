@@ -1,11 +1,11 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+#include <utilities.h>
 #include "alloc.h"
 #include "solve.h"
 #include "print.h"
-#include "util.h"
 #include "nqueens.h"
-
-#include <stdlib.h>
-#include <stdio.h>
 
 #define BOARD_SIZE 4
 
@@ -27,13 +27,13 @@ int main(int argc, char *argv[])
 
         while (!snQueens.iShouldClose)
         {
-                clrscr();
+                _clrscr();
 
                 printMenu();
                 printBoard(snQueens.ppiBoard, snQueens.iSize);
-                printStatus();
+                printStatus(&snQueens);
 
-                char c = getchar();
+                char c = _getch();
                 handleInput(c, &snQueens);
         }
 

@@ -3,6 +3,6 @@
 
 void printBoard(int **ppiBoard, const int iN);
 void printMenu();
-void printStatus();
+void printStatus(const struct nQueens * const pnQueens);
 
 #endif // _PRINT_H_

@@ -1,5 +1,5 @@
-# Object files
-*.o
+# Top level debug folder
+Debug/
 
-# Executable
-nqueens
+# Machine specific files
+.vs/
