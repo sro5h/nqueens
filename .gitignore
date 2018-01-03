@@ -3,3 +3,9 @@ Debug/
 
 # Machine specific files
 .vs/
+
+# Dll library files
+common_libraries/dll.lib
+
+# Dll headers
+common_includes/save.h
