@@ -7,6 +7,6 @@
 #define SAVE_API __declspec(dllimport)
 #endif
 
-void SAVE_API writeToFile(const int ** const ppiBoard, const int iSize);
+int SAVE_API appendToFile(const char * const pcFilename, const int ** const ppiBoard, const int iSize);
 
 #endif // _SAVE_H_
