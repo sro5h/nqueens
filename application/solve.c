@@ -8,8 +8,17 @@ int solve(const int iRow, struct nQueens * const pnQueens)
         // Return true if n queens could be placed
         if (iRow == pnQueens->iSize)
         {
-                printBoard(pnQueens->ppiBoard, pnQueens->iSize);
-                awaitInputSolve(pnQueens);
+                ++pnQueens->iSolutionCount;
+
+                if (pnQueens->eAppMode == Step)
+                {
+                        printBoard(pnQueens->ppiBoard, pnQueens->iSize);
+                        awaitInputSolve(pnQueens);
+                }
+                else
+                {
+                        checkInputSolve(pnQueens);
+                }
 
                 // Is the user requesting to stop solving
                 if (!pnQueens->iShouldSolve)

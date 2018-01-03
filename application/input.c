@@ -70,24 +70,10 @@ void awaitInputSolve(struct nQueens * const pnQueens)
         }
 }
 
-int checkInputSolve(struct nQueens * const pnQueens)
+void checkInputSolve(struct nQueens * const pnQueens)
 {
         if (_kbhit())
         {
-                char cKey = _getch();
-
-                switch (cKey)
-                {
-                case 'e':
-                        pnQueens->iShouldSolve = 0;
-                        pnQueens->iShouldClose = 1;
-                        return KEY_STOP;
-
-                case 's':
-                        pnQueens->iShouldSolve = 0;
-                        return KEY_STOP;
-                }
+                awaitInputSolve(pnQueens);
         }
-
-        return 0;
 }

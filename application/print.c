@@ -15,6 +15,7 @@
 void printHeader();
 void printMenu(int iSolving);
 void printStatus(const struct nQueens * const pnQueens);
+void gotoEnd();
 
 void print(const struct nQueens * const pnQueens)
 {
@@ -54,6 +55,21 @@ void printBoard(int ** const ppiBoard, const int iN)
                         }
                 }
         }
+
+        gotoEnd();
+}
+
+void printSolutionCount(const int iSolutionCount)
+{
+        const int iStartX = (SCREEN_WIDTH - 24) / 2;
+        const int iStartY = (SCREEN_HEIGHT - 2) / 2;
+
+        _gotoxy(iStartX, iStartY);
+        printf("Solutions found: %5d\n", iSolutionCount);
+        _gotoxy(iStartX, iStartY + 1);
+        printf("Press any key to continue...\n");
+
+        gotoEnd();
 }
 
 void printHeader()
@@ -115,4 +131,9 @@ void printStatus(const struct nQueens * const pnQueens)
         printf("\n");
 
         printf(" ------------------------------------------------------------------------------");
+}
+
+void gotoEnd()
+{
+        _gotoxy(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1);
 }

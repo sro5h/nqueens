@@ -31,8 +31,15 @@ int main(int argc, char *argv[])
                 {
                         solve(0, &snQueens);
 
+                        if (snQueens.eAppMode == Continuous && snQueens.iShouldSolve)
+                        {
+                                printSolutionCount(snQueens.iSolutionCount);
+                                awaitInputSolve(&snQueens);
+                        }
+
                         // Prevent from solving again if all solutions were found
                         snQueens.iShouldSolve = 0;
+                        snQueens.iSolutionCount = 0;
 
                         resetBoard(snQueens.ppiBoard, snQueens.iSize);
                 }

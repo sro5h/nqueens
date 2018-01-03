@@ -4,6 +4,7 @@
 #include "nqueens.h"
 
 void awaitInput(struct nQueens * const pnQueens);
-int checkForExit(struct nQueens * const pnQueens);
+void awaitInputSolve(struct nQueens * const pnQueens);
+void checkInputSolve(struct nQueens * const pnQueens);
 
 #endif // _INPUT_H_
