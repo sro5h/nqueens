@@ -6,8 +6,8 @@
 void init(struct nQueens * const psnQueens)
 {
         psnQueens->ppiBoard = NULL;
-        psnQueens->iSize = 4;
-        strncpy(psnQueens->acFilename, "default.txt", sizeof(psnQueens->acFilename));
+        psnQueens->iSize = DEFAULT_BOARD_SIZE;
+        strncpy(psnQueens->acFilename, DEFAULT_FILENAME, sizeof(psnQueens->acFilename));
 
         psnQueens->eAppMode = Step;
         psnQueens->eSaveMode = SaveOff;

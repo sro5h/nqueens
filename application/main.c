@@ -9,15 +9,14 @@
 #include "input.h"
 #include "runtime.h"
 
-#define BOARD_SIZE 4
+#define DEFAULT_BOARD_SIZE 4
 
 int main(int argc, char *argv[])
 {
         struct nQueens snQueens;
         init(&snQueens);
 
-        snQueens.iSize = BOARD_SIZE;
-        snQueens.ppiBoard = allocBoard(BOARD_SIZE);
+        snQueens.ppiBoard = allocBoard(snQueens.iSize);
 
         if (!snQueens.ppiBoard)
         {

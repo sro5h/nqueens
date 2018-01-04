@@ -3,6 +3,9 @@
 
 #include <time.h>
 
+#define DEFAULT_BOARD_SIZE 4
+#define DEFAULT_FILENAME   "default.txt"
+
 enum AppMode
 {
         Step,
