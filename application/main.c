@@ -9,8 +9,6 @@
 #include "input.h"
 #include "runtime.h"
 
-#define DEFAULT_BOARD_SIZE 4
-
 int main(int argc, char *argv[])
 {
         struct nQueens snQueens;

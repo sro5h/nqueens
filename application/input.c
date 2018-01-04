@@ -3,8 +3,6 @@
 #include "input.h"
 #include "print.h"
 
-#define KEY_STOP 1
-
 void awaitInput(struct nQueens * const psnQueens)
 {
         char cKey = _getch();
