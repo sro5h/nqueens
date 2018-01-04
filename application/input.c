@@ -29,6 +29,13 @@ void awaitInput(struct nQueens * const psnQueens)
                 psnQueens->eAppMode = psnQueens->eAppMode == Step ? Continuous : Step;
                 break;
 
+        case 'f':
+                printInputScreen("Enter new filename: ", psnQueens);
+                scanf("%s", acBuffer);
+
+                strncpy(psnQueens->acFilename, acBuffer, sizeof(psnQueens->acFilename));
+                break;
+
         case 's':
                 do
                 {

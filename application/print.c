@@ -10,7 +10,7 @@
 #define SCREEN_HEIGHT 25
 #define SCREEN_WIDTH  80
 #define MENU_HEIGHT   4
-#define STATUS_HEIGHT 3
+#define STATUS_HEIGHT 4
 
 void printHeader();
 void printMenu(int iSolving);
@@ -125,10 +125,24 @@ void printStatus(const struct nQueens * const psnQueens)
                 printf("(Cont)  ");
         }
 
+        /* Filename status */
+        printf("filename (%.20s)", psnQueens->acFilename);
+
+        /* Print ending bar */
+        _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 1);
+        printf("|\n");
+
+        printf(" |         ");
+
         /* Board size status */
         printf("board size (%d)   ", psnQueens->iSize);
 
-        printf("\n");
+        /* Solution count  status */
+        printf("solutions (%d)   ", psnQueens->iSolutionCount);
+
+        /* Print ending bar */
+        _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 2);
+        printf("|\n");
 
         printf(" ------------------------------------------------------------------------------");
 }
