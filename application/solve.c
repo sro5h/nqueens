@@ -1,3 +1,4 @@
+#include <save.h>
 #include "solve.h"
 #include "print.h"
 
@@ -9,6 +10,13 @@ int solve(const int iRow, struct nQueens * const psnQueens)
         if (iRow == psnQueens->iSize)
         {
                 ++psnQueens->iSolutionCount;
+
+                // Save solution to file if save on
+                if (psnQueens->eSaveMode == SaveOn)
+                {
+                        appendToFile(psnQueens->acFilename, psnQueens->ppiBoard,
+                                psnQueens->iSize, psnQueens->iSolutionCount);
+                }
 
                 if (psnQueens->eAppMode == Step)
                 {

@@ -17,6 +17,7 @@ struct nQueens
 {
         int **ppiBoard;
         int iSize;
+        char acFilename[64];
 
         enum AppMode eAppMode;
         enum SaveMode eSaveMode;
