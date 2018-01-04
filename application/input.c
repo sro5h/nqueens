@@ -9,6 +9,7 @@ void awaitInput(struct nQueens * const psnQueens)
 {
         char cKey = _getch();
         int iNewSize;
+        char acBuffer[64];
 
         switch (cKey)
         {
@@ -31,8 +32,9 @@ void awaitInput(struct nQueens * const psnQueens)
         case 's':
                 do
                 {
-                        printInputScreen("  Enter new board size: ", psnQueens);
-                        scanf("%d", &iNewSize);
+                        printInputScreen("Enter new board size: ", psnQueens);
+                        scanf("%s", acBuffer);
+                        iNewSize = (int) strtol(acBuffer, NULL, 10);
                 }
                 while (!(iNewSize >= 4 && iNewSize <= 12));
 
