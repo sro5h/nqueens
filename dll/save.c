@@ -4,14 +4,26 @@
 #define SAVE_CHAR_QUEEN 'Q'
 #define SAVE_CHAR_NONE  '#'
 
+void resetFile(const char * const pcFilename)
+{
+        FILE *pFile;
+
+        pFile = fopen(pcFilename, "w");
+
+        if (pFile)
+        {
+                fclose(pFile);
+        }
+}
+
 int appendToFile(const char * const pcFilename, const int ** const ppiBoard, const int iSize, const int iSolutionCount)
 {
         FILE *pFile;
-        char acBuffer[256];
 
         pFile = fopen(pcFilename, "a");
 
-        if (!pFile) {
+        if (!pFile)
+        {
                 return 0;
         }
 

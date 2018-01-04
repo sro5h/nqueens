@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
+#include <save.h>
 #include "nqueens.h"
 #include "alloc.h"
 #include "solve.h"
@@ -29,6 +30,12 @@ int main(int argc, char *argv[])
 
                 if (snQueens.iShouldSolve)
                 {
+                        // Clear the file first if save mode is on
+                        if (snQueens.eSaveMode == SaveOn)
+                        {
+                                resetFile(snQueens.acFilename);
+                        }
+
                         solve(0, &snQueens);
 
                         if (snQueens.eAppMode == Continuous && snQueens.iShouldSolve)
