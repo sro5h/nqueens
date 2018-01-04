@@ -37,7 +37,7 @@ void printInputScreen(const char *pcMessage, const struct nQueens * const psnQue
 void printBoard(int ** const ppiBoard, const int iN)
 {
         const int iStartX = (SCREEN_WIDTH - 2 * iN) / 2;
-        const int iStartY = (SCREEN_HEIGHT - iN) / 2;
+        const int iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - iN) / 2);
 
         for (int iR = 0; iR < iN; ++iR)
         {
@@ -62,7 +62,7 @@ void printBoard(int ** const ppiBoard, const int iN)
 void printSolutionCount(const int iSolutionCount)
 {
         const int iStartX = (SCREEN_WIDTH - 24) / 2;
-        const int iStartY = (SCREEN_HEIGHT - 2) / 2;
+        const int iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - 2) / 2);
 
         _gotoxy(iStartX, iStartY);
         printf("Solutions found: %5d\n", iSolutionCount);
