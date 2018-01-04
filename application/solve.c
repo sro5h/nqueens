@@ -1,6 +1,7 @@
 #include <save.h>
 #include "solve.h"
 #include "print.h"
+#include "runtime.h"
 
 int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iN);
 void handleSolution(struct nQueens * const psnQueens);
@@ -54,10 +55,18 @@ void handleSolution(struct nQueens * const psnQueens)
         // Update the status line
         printStatus(psnQueens);
 
+        // Append the measured time to dRuntime
+        // The time spent on printing and saving is intentionally added
+        // as it is not further specified.
+        appendElapsed(&psnQueens->sAppTime);
+
         if (psnQueens->eAppMode == Step)
         {
                 printBoard(psnQueens->ppiBoard, psnQueens->iSize);
                 awaitInputSolve(psnQueens);
+
+                // Discard the time that got spent on waiting for input
+                discardElapsed(&psnQueens->sAppTime);
         }
         else
         {

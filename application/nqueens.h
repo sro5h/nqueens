@@ -1,6 +1,8 @@
 #ifndef _NQUEENS_H_
 #define _NQUEENS_H_
 
+#include <time.h>
+
 enum AppMode
 {
         Step,
@@ -13,6 +15,12 @@ enum SaveMode
         SaveOff,
 };
 
+struct AppTime
+{
+        clock_t lLastTimeStamp;
+        double dRuntime;
+};
+
 struct nQueens
 {
         int **ppiBoard;
@@ -23,6 +31,8 @@ struct nQueens
         enum SaveMode eSaveMode;
         int iShouldClose;
         int iShouldSolve;
+
+        struct AppTime sAppTime;
 
         int iSolutionCount;
 };

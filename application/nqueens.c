@@ -13,6 +13,9 @@ void init(struct nQueens * const psnQueens)
         psnQueens->iShouldClose = 0;
         psnQueens->iShouldSolve = 0;
 
+        psnQueens->sAppTime.lLastTimeStamp = clock();
+        psnQueens->sAppTime.dRuntime = 0.0;
+
         psnQueens->iSolutionCount = 0;
 }
 

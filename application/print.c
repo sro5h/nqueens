@@ -139,6 +139,9 @@ void printStatus(const struct nQueens * const psnQueens)
         /* Solution count  status */
         printf("solutions: %5d  ", psnQueens->iSolutionCount);
 
+        /* Runtime in seconds status */
+        printf("runtime: %.3lfs", psnQueens->sAppTime.dRuntime);
+
         /* Print ending bar */
         _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 2);
         printf("|\n");

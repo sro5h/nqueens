@@ -7,6 +7,7 @@
 #include "solve.h"
 #include "print.h"
 #include "input.h"
+#include "runtime.h"
 
 #define BOARD_SIZE 4
 
@@ -36,6 +37,9 @@ int main(int argc, char *argv[])
                                 resetFile(snQueens.acFilename);
                         }
 
+                        // Begin runtime measurements
+                        resetTime(&snQueens.sAppTime);
+
                         solve(0, &snQueens);
 
                         if (snQueens.eAppMode == Continuous && snQueens.iShouldSolve)
@@ -44,10 +48,11 @@ int main(int argc, char *argv[])
                                 awaitInputSolve(&snQueens);
                         }
 
+                        // Reset all solving related attributes
                         // Prevent from solving again if all solutions were found
                         snQueens.iShouldSolve = 0;
                         snQueens.iSolutionCount = 0;
-
+                        resetTime(&snQueens.sAppTime);
                         resetBoard(snQueens.ppiBoard, snQueens.iSize);
                 }
                 else

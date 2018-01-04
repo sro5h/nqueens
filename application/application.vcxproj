@@ -24,6 +24,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="nqueens.c" />
     <ClCompile Include="print.c" />
+    <ClCompile Include="runtime.c" />
     <ClCompile Include="solve.c" />
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +32,7 @@
     <ClInclude Include="input.h" />
     <ClInclude Include="nqueens.h" />
     <ClInclude Include="print.h" />
+    <ClInclude Include="runtime.h" />
     <ClInclude Include="solve.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
