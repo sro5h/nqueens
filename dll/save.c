@@ -1,8 +1,22 @@
+/**
+ * @file save.c
+ * @brief Handles saving solutions to a file
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
+
 #include <stdio.h>
 #include "save.h"
 
-#define SAVE_CHAR_QUEEN 'Q'
+/**
+ * @brief The character representing an empty field
+ */
 #define SAVE_CHAR_NONE  '#'
+
+/**
+ * @brief The character representing a queen
+ */
+#define SAVE_CHAR_QUEEN 'Q'
 
 void resetFile(const char * const pcFilename)
 {

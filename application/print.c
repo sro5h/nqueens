@@ -1,19 +1,65 @@
+/**
+ * @file print.c
+ * @brief Handles printing the header, menu, body and status line.
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
+
+#include <stdio.h>
 #include <utilities.h>
 #include "print.h"
 #include "nqueens.h"
 
-#include <stdio.h>
-
+/**
+ * @brief The character representing an empty field
+ */
 #define CHAR_NONE  '#'
+
+/**
+ * @brief The character representing a queen
+ */
 #define CHAR_QUEEN 'Q'
 
+/**
+ * @brief The height of the screen
+ */
 #define SCREEN_HEIGHT 25
+
+/**
+ * @brief The width of the screen
+ */
 #define SCREEN_WIDTH  80
+
+/**
+ * @brief The height of the menu
+ */
 #define MENU_HEIGHT   4
+
+/**
+ * @brief The height of the status line
+ */
 #define STATUS_HEIGHT 4
 
+/**
+ * @brief A helper function that prints the app header
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
 void printHeader();
+
+/**
+ * @brief A helper function that prints the menu
+ * @param iSolving Whether solve is currently running
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
 void printMenu(int iSolving);
+
+/**
+ * @brief A helper function that sets the cursor to the screen end
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
 void gotoEnd();
 
 void print(const struct nQueens * const psnQueens)
@@ -24,7 +70,7 @@ void print(const struct nQueens * const psnQueens)
         printStatus(psnQueens);
 }
 
-void printInputScreen(const char *pcMessage, const struct nQueens * const psnQueens)
+void printMessage(const char *pcMessage, const struct nQueens * const psnQueens)
 {
         _clrscr();
 
@@ -33,16 +79,16 @@ void printInputScreen(const char *pcMessage, const struct nQueens * const psnQue
         printf("  %s", pcMessage);
 }
 
-void printBoard(int ** const ppiBoard, const int iN)
+void printBoard(int ** const ppiBoard, const int iSize)
 {
-        const int iStartX = (SCREEN_WIDTH - 2 * iN) / 2;
-        const int iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - iN) / 2);
+        const int iStartX = (SCREEN_WIDTH - 2 * iSize) / 2;
+        const int iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - iSize) / 2);
 
-        for (int iR = 0; iR < iN; ++iR)
+        for (int iR = 0; iR < iSize; ++iR)
         {
                 _gotoxy(iStartX, iStartY + iR);
 
-                for (int iC = 0; iC < iN; ++iC)
+                for (int iC = 0; iC < iSize; ++iC)
                 {
                         if (ppiBoard[iR][iC])
                         {

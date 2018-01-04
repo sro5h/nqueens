@@ -1,3 +1,10 @@
+/**
+ * @file main.c
+ * @brief Handles the logical process of the program.
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
@@ -9,6 +16,14 @@
 #include "input.h"
 #include "runtime.h"
 
+/**
+ * @brief The main function
+ * @param argc The argument count, not used
+ * @param argv The arguments, not used
+ * @return 0 if execution successful, -1 otherwise
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
 int main(int argc, char *argv[])
 {
         struct nQueens snQueens;

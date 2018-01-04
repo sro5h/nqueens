@@ -1,3 +1,10 @@
+/**
+ * @file input.c
+ * @brief Handles user input and reacts to it
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
+
 #include <stdio.h>
 #include <conio.h>
 #include "input.h"
@@ -28,7 +35,7 @@ void awaitInput(struct nQueens * const psnQueens)
                 break;
 
         case 'f':
-                printInputScreen("Enter new filename: ", psnQueens);
+                printMessage("Enter new filename: ", psnQueens);
                 scanf("%s", acBuffer);
 
                 strncpy(psnQueens->acFilename, acBuffer, sizeof(psnQueens->acFilename));
@@ -37,7 +44,7 @@ void awaitInput(struct nQueens * const psnQueens)
         case 's':
                 do
                 {
-                        printInputScreen("Enter new board size: ", psnQueens);
+                        printMessage("Enter new board size: ", psnQueens);
                         scanf("%s", acBuffer);
                         iNewSize = (int) strtol(acBuffer, NULL, 10);
                 }

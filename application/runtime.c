@@ -1,3 +1,10 @@
+/**
+ * @file runtime.c
+ * @brief Handles measuring the app runtime
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
+
 #include "runtime.h"
 #include "nqueens.h"
 

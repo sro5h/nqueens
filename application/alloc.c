@@ -1,6 +1,12 @@
-#include "alloc.h"
+/**
+ * @file alloc.c
+ * @brief Handles (de)allocation of the chess board
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
 
 #include <stdlib.h>
+#include "alloc.h"
 
 int** allocBoard(const int iSize)
 {

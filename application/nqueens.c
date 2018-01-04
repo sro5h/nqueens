@@ -1,3 +1,10 @@
+/**
+ * @file nqueens.c
+ * @brief Handles initializing and resetting the nQueens data.
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
+
 #include <stdlib.h>
 #include <string.h>
 #include <Windows.h>

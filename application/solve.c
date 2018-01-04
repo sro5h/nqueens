@@ -1,9 +1,33 @@
+/**
+ * @file solve.c
+ * @brief Handles solving the n queens problem.
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
+
 #include <save.h>
 #include "solve.h"
 #include "print.h"
 #include "runtime.h"
 
-int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iN);
+/**
+ * @brief A helper function that checks whether a field is safe
+ * @param iRow The row to check
+ * @param iCol The column to check
+ * @param ppiBoard The array containing the chess board
+ * @param iSize The size of the array
+ * @return 1 if the field is safe, 0 otherwise
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
+int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iSize);
+
+/**
+ * @brief A helper function that handles a found solution
+ * @param psnQueens The current app state
+ * @author Paul Meffle
+ * @date 04.01.2018
+ */
 void handleSolution(struct nQueens * const psnQueens);
 
 int solve(const int iRow, struct nQueens * const psnQueens)
@@ -74,7 +98,7 @@ void handleSolution(struct nQueens * const psnQueens)
         }
 }
 
-int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iN)
+int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iSize)
 {
         // Check above
         for (int iR = 0; iR < iRow; ++iR)
@@ -95,7 +119,7 @@ int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iN)
         }
 
         // Check diagonal top right
-        for (int iR = iRow, iC = iCol; iR >= 0 && iC < iN; --iR, ++iC)
+        for (int iR = iRow, iC = iCol; iR >= 0 && iC < iSize; --iR, ++iC)
         {
                 if (ppiBoard[iR][iC])
                 {
