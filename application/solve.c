@@ -3,25 +3,25 @@
 
 int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iN);
 
-int solve(const int iRow, struct nQueens * const pnQueens)
+int solve(const int iRow, struct nQueens * const psnQueens)
 {
         // Return true if n queens could be placed
-        if (iRow == pnQueens->iSize)
+        if (iRow == psnQueens->iSize)
         {
-                ++pnQueens->iSolutionCount;
+                ++psnQueens->iSolutionCount;
 
-                if (pnQueens->eAppMode == Step)
+                if (psnQueens->eAppMode == Step)
                 {
-                        printBoard(pnQueens->ppiBoard, pnQueens->iSize);
-                        awaitInputSolve(pnQueens);
+                        printBoard(psnQueens->ppiBoard, psnQueens->iSize);
+                        awaitInputSolve(psnQueens);
                 }
                 else
                 {
-                        checkInputSolve(pnQueens);
+                        checkInputSolve(psnQueens);
                 }
 
                 // Is the user requesting to stop solving
-                if (!pnQueens->iShouldSolve)
+                if (!psnQueens->iShouldSolve)
                 {
                         return -1;
                 }
@@ -29,19 +29,19 @@ int solve(const int iRow, struct nQueens * const pnQueens)
                 return 1;
         }
 
-        for (int iC = 0; iC < pnQueens->iSize; ++iC)
+        for (int iC = 0; iC < psnQueens->iSize; ++iC)
         {
-                if (isSafe(iRow, iC, pnQueens->ppiBoard, pnQueens->iSize))
+                if (isSafe(iRow, iC, psnQueens->ppiBoard, psnQueens->iSize))
                 {
-                        pnQueens->ppiBoard[iRow][iC] = 1;
+                        psnQueens->ppiBoard[iRow][iC] = 1;
 
                         // Propagate the stop request down the recursion tree
-                        if (solve(iRow + 1, pnQueens) == -1)
+                        if (solve(iRow + 1, psnQueens) == -1)
                         {
                                 return -1;
                         }
 
-                        pnQueens->ppiBoard[iRow][iC] = 0;
+                        psnQueens->ppiBoard[iRow][iC] = 0;
                 }
         }
 

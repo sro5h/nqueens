@@ -3,6 +3,6 @@
 
 #include "nqueens.h"
 
-int solve(const int iRow, struct nQueens * const pnQueens);
+int solve(const int iRow, struct nQueens * const psnQueens);
 
 #endif // _SOLVE_H_

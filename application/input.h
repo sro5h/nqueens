@@ -3,8 +3,8 @@
 
 #include "nqueens.h"
 
-void awaitInput(struct nQueens * const pnQueens);
-void awaitInputSolve(struct nQueens * const pnQueens);
-void checkInputSolve(struct nQueens * const pnQueens);
+void awaitInput(struct nQueens * const psnQueens);
+void awaitInputSolve(struct nQueens * const psnQueens);
+void checkInputSolve(struct nQueens * const psnQueens);
 
 #endif // _INPUT_H_

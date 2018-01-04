@@ -2,17 +2,17 @@
 
 #include <stdlib.h>
 
-void init(struct nQueens * const pnQueens)
+void init(struct nQueens * const psnQueens)
 {
-        pnQueens->ppiBoard = NULL;
-        pnQueens->iSize = 4;
+        psnQueens->ppiBoard = NULL;
+        psnQueens->iSize = 4;
 
-        pnQueens->eAppMode = Step;
-        pnQueens->eSaveMode = SaveOff;
-        pnQueens->iShouldClose = 0;
-        pnQueens->iShouldSolve = 0;
+        psnQueens->eAppMode = Step;
+        psnQueens->eSaveMode = SaveOff;
+        psnQueens->iShouldClose = 0;
+        psnQueens->iShouldSolve = 0;
 
-        pnQueens->iSolutionCount = 0;
+        psnQueens->iSolutionCount = 0;
 }
 
 void resetBoard(int ** const ppiBoard, const int iSize)

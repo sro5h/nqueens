@@ -14,22 +14,22 @@
 
 void printHeader();
 void printMenu(int iSolving);
-void printStatus(const struct nQueens * const pnQueens);
+void printStatus(const struct nQueens * const psnQueens);
 void gotoEnd();
 
-void print(const struct nQueens * const pnQueens)
+void print(const struct nQueens * const psnQueens)
 {
         _clrscr();
 
-        printMenu(pnQueens->iShouldSolve);
-        printStatus(pnQueens);
+        printMenu(psnQueens->iShouldSolve);
+        printStatus(psnQueens);
 }
 
-void printInputScreen(const char *pcMessage, const struct nQueens * const pnQueens)
+void printInputScreen(const char *pcMessage, const struct nQueens * const psnQueens)
 {
         _clrscr();
 
-        printStatus(pnQueens);
+        printStatus(psnQueens);
         printHeader();
         printf("  %s", pcMessage);
 }
@@ -95,7 +95,7 @@ void printMenu(int algorithmRunning)
         }
 }
 
-void printStatus(const struct nQueens * const pnQueens)
+void printStatus(const struct nQueens * const psnQueens)
 {
         _gotoxy(0, SCREEN_HEIGHT - STATUS_HEIGHT);
 
@@ -105,7 +105,7 @@ void printStatus(const struct nQueens * const pnQueens)
 
         /* Save mode status */
         printf("save mode ");
-        if (pnQueens->eSaveMode == SaveOn)
+        if (psnQueens->eSaveMode == SaveOn)
         {
                 printf("(on)   ");
         }
@@ -116,7 +116,7 @@ void printStatus(const struct nQueens * const pnQueens)
 
         /* App mode status */
         printf("app mode ");
-        if (pnQueens->eAppMode == Step)
+        if (psnQueens->eAppMode == Step)
         {
                 printf("(Step)  ");
         }
@@ -126,7 +126,7 @@ void printStatus(const struct nQueens * const pnQueens)
         }
 
         /* Board size status */
-        printf("board size (%d)   ", pnQueens->iSize);
+        printf("board size (%d)   ", psnQueens->iSize);
 
         printf("\n");
 

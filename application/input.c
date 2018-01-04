@@ -5,7 +5,7 @@
 
 #define KEY_STOP 1
 
-void awaitInput(struct nQueens * const pnQueens)
+void awaitInput(struct nQueens * const psnQueens)
 {
         char cKey = _getch();
         int iNewSize;
@@ -13,55 +13,55 @@ void awaitInput(struct nQueens * const pnQueens)
         switch (cKey)
         {
         case 'e':
-                pnQueens->iShouldClose = 1;
+                psnQueens->iShouldClose = 1;
                 break;
 
         case 'b':
-                pnQueens->iShouldSolve = 1;
+                psnQueens->iShouldSolve = 1;
                 break;
 
         case 'a':
-                pnQueens->eSaveMode = pnQueens->eSaveMode == SaveOn ? SaveOff : SaveOn;
+                psnQueens->eSaveMode = psnQueens->eSaveMode == SaveOn ? SaveOff : SaveOn;
                 break;
 
         case 'm':
-                pnQueens->eAppMode = pnQueens->eAppMode == Step ? Continuous : Step;
+                psnQueens->eAppMode = psnQueens->eAppMode == Step ? Continuous : Step;
                 break;
 
         case 's':
                 do
                 {
-                        printInputScreen("  Enter new board size: ", pnQueens);
+                        printInputScreen("  Enter new board size: ", psnQueens);
                         scanf("%d", &iNewSize);
                 }
                 while (!(iNewSize >= 4 && iNewSize <= 12));
 
-                freeBoard(pnQueens->ppiBoard, pnQueens->iSize);
-                pnQueens->iSize = iNewSize;
-                pnQueens->ppiBoard = allocBoard(pnQueens->iSize);
+                freeBoard(psnQueens->ppiBoard, psnQueens->iSize);
+                psnQueens->iSize = iNewSize;
+                psnQueens->ppiBoard = allocBoard(psnQueens->iSize);
 
                 // Terminate the program if allocation failed
-                if (pnQueens->ppiBoard == NULL)
+                if (psnQueens->ppiBoard == NULL)
                 {
-                        pnQueens->iShouldClose = 1;
+                        psnQueens->iShouldClose = 1;
                 }
                 break;
         }
 }
 
-void awaitInputSolve(struct nQueens * const pnQueens)
+void awaitInputSolve(struct nQueens * const psnQueens)
 {
         char cKey = _getch();
 
         switch (cKey)
         {
         case 'e':
-                pnQueens->iShouldSolve = 0;
-                pnQueens->iShouldClose = 1;
+                psnQueens->iShouldSolve = 0;
+                psnQueens->iShouldClose = 1;
                 break;
 
         case 's':
-                pnQueens->iShouldSolve = 0;
+                psnQueens->iShouldSolve = 0;
                 break;
 
         /* Continue if a key is hit */
@@ -70,10 +70,10 @@ void awaitInputSolve(struct nQueens * const pnQueens)
         }
 }
 
-void checkInputSolve(struct nQueens * const pnQueens)
+void checkInputSolve(struct nQueens * const psnQueens)
 {
         if (_kbhit())
         {
-                awaitInputSolve(pnQueens);
+                awaitInputSolve(psnQueens);
         }
 }

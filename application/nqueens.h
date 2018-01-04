@@ -26,7 +26,7 @@ struct nQueens
         int iSolutionCount;
 };
 
-void init(struct nQueens * const pnQueens);
+void init(struct nQueens * const psnQueens);
 void resetBoard(int ** const ppiBoard, const int iSize);
 
 #endif // _NQUEENS_H_
