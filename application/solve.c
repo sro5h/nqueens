@@ -3,6 +3,7 @@
 #include "print.h"
 
 int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iN);
+void handleSolution(struct nQueens * const psnQueens);
 
 int solve(const int iRow, struct nQueens * const psnQueens)
 {
@@ -11,22 +12,7 @@ int solve(const int iRow, struct nQueens * const psnQueens)
         {
                 ++psnQueens->iSolutionCount;
 
-                // Save solution to file if save on
-                if (psnQueens->eSaveMode == SaveOn)
-                {
-                        appendToFile(psnQueens->acFilename, psnQueens->ppiBoard,
-                                psnQueens->iSize, psnQueens->iSolutionCount);
-                }
-
-                if (psnQueens->eAppMode == Step)
-                {
-                        printBoard(psnQueens->ppiBoard, psnQueens->iSize);
-                        awaitInputSolve(psnQueens);
-                }
-                else
-                {
-                        checkInputSolve(psnQueens);
-                }
+                handleSolution(psnQueens);
 
                 // Is the user requesting to stop solving
                 if (!psnQueens->iShouldSolve)
@@ -54,6 +40,26 @@ int solve(const int iRow, struct nQueens * const psnQueens)
         }
 
         return 0;
+}
+
+void handleSolution(struct nQueens * const psnQueens)
+{
+        // Save solution to file if save mode is on
+        if (psnQueens->eSaveMode == SaveOn)
+        {
+                appendToFile(psnQueens->acFilename, psnQueens->ppiBoard,
+                        psnQueens->iSize, psnQueens->iSolutionCount);
+        }
+
+        if (psnQueens->eAppMode == Step)
+        {
+                printBoard(psnQueens->ppiBoard, psnQueens->iSize);
+                awaitInputSolve(psnQueens);
+        }
+        else
+        {
+                checkInputSolve(psnQueens);
+        }
 }
 
 int isSafe(const int iRow, const int iCol, int ** const ppiBoard, const int iN)
