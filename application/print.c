@@ -103,29 +103,29 @@ void printStatus(const struct nQueens * const psnQueens)
         printf(" | Status: ");
 
         /* Save mode status */
-        printf("save mode ");
+        printf("save mode: ");
         if (psnQueens->eSaveMode == SaveOn)
         {
-                printf("(on)   ");
+                printf("on     ");
         }
         else
         {
-                printf("(off)  ");
+                printf("off    ");
         }
 
         /* App mode status */
-        printf("app mode ");
+        printf("app mode: ");
         if (psnQueens->eAppMode == Step)
         {
-                printf("(Step)  ");
+                printf("step    ");
         }
         else
         {
-                printf("(Cont)  ");
+                printf("cont    ");
         }
 
         /* Filename status */
-        printf("filename (%.20s)", psnQueens->acFilename);
+        printf("filename: %.18s", psnQueens->acFilename);
 
         /* Print ending bar */
         _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 1);
@@ -134,10 +134,10 @@ void printStatus(const struct nQueens * const psnQueens)
         printf(" |         ");
 
         /* Board size status */
-        printf("board size (%d)   ", psnQueens->iSize);
+        printf("board size: %2d    ", psnQueens->iSize);
 
         /* Solution count  status */
-        printf("solutions (%d)   ", psnQueens->iSolutionCount);
+        printf("solutions: %5d  ", psnQueens->iSolutionCount);
 
         /* Print ending bar */
         _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 2);
