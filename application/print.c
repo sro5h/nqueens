@@ -14,7 +14,6 @@
 
 void printHeader();
 void printMenu(int iSolving);
-void printStatus(const struct nQueens * const psnQueens);
 void gotoEnd();
 
 void print(const struct nQueens * const psnQueens)

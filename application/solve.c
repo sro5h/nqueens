@@ -51,6 +51,9 @@ void handleSolution(struct nQueens * const psnQueens)
                         psnQueens->iSize, psnQueens->iSolutionCount);
         }
 
+        // Update the status line
+        printStatus(psnQueens);
+
         if (psnQueens->eAppMode == Step)
         {
                 printBoard(psnQueens->ppiBoard, psnQueens->iSize);
