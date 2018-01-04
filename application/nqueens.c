@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <Windows.h>
 #include "nqueens.h"
 
 void init(struct nQueens * const psnQueens)
@@ -17,6 +18,14 @@ void init(struct nQueens * const psnQueens)
         psnQueens->sAppTime.dRuntime = 0.0;
 
         psnQueens->iSolutionCount = 0;
+
+        // Set console buffer size
+        HANDLE sHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+        COORD sBufferSize = { 80, 25 };
+        SetConsoleScreenBufferSize(sHandle, sBufferSize);
+        // Set console window size
+        SMALL_RECT sWindowSize = { 0, 0, 80, 25 };
+        SetConsoleWindowInfo(sHandle, 1, &sWindowSize);
 }
 
 void resetBoard(int ** const ppiBoard, const int iSize)
