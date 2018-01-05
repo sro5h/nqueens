@@ -6,6 +6,7 @@ Debug/
 
 # Dll library files
 common_libraries/dll.lib
+common_libraries/dlld.lib
 
 # Dll headers
 common_includes/save.h
