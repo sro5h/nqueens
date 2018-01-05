@@ -9,3 +9,6 @@ common_libraries/dll.lib
 
 # Dll headers
 common_includes/save.h
+
+# Doxygen documentation
+doxygen/html
