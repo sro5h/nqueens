@@ -18,13 +18,11 @@
 
 /**
  * @brief The main function
- * @param argc The argument count, not used
- * @param argv The arguments, not used
  * @return 0 if execution successful, -1 otherwise
  * @author Paul Meffle
  * @date 04.01.2018
  */
-int main(int argc, char *argv[])
+int main()
 {
         struct nQueens snQueens;
         init(&snQueens);

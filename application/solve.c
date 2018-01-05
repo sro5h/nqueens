@@ -8,6 +8,7 @@
 #include <save.h>
 #include "solve.h"
 #include "print.h"
+#include "input.h"
 #include "runtime.h"
 
 /**

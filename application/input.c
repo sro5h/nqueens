@@ -5,18 +5,21 @@
  * @date 04.01.2018
  */
 
+#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <conio.h>
+#include "alloc.h"
 #include "input.h"
 #include "print.h"
 
 void awaitInput(struct nQueens * const psnQueens)
 {
-        char cKey = _getch();
+        int iKey = _getch();
         int iNewSize;
         char acBuffer[64];
 
-        switch (cKey)
+        switch (iKey)
         {
         case 'e':
                 psnQueens->iShouldClose = 1;
@@ -65,9 +68,9 @@ void awaitInput(struct nQueens * const psnQueens)
 
 void awaitInputSolve(struct nQueens * const psnQueens)
 {
-        char cKey = _getch();
+        int iKey = _getch();
 
-        switch (cKey)
+        switch (iKey)
         {
         case 'e':
                 psnQueens->iShouldSolve = 0;

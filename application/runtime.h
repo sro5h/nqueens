@@ -8,6 +8,8 @@
 #ifndef _RUNTIME_H_
 #define _RUNTIME_H_
 
+struct AppTime;
+
 /**
  * @brief Add the measured time since the last call to clock to dRuntime
  * @param psAppTime The struct to store the measurement data in

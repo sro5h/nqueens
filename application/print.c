@@ -81,12 +81,12 @@ void printMessage(const char *pcMessage, const struct nQueens * const psnQueens)
 
 void printBoard(int ** const ppiBoard, const int iSize)
 {
-        const int iStartX = (SCREEN_WIDTH - 2 * iSize) / 2;
-        const int iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - iSize) / 2);
+        const short iStartX = (SCREEN_WIDTH - 2 * (short)iSize) / 2;
+        const short iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - (short)iSize) / 2);
 
         for (int iR = 0; iR < iSize; ++iR)
         {
-                _gotoxy(iStartX, iStartY + iR);
+                _gotoxy(iStartX, iStartY + (short)iR);
 
                 for (int iC = 0; iC < iSize; ++iC)
                 {
@@ -106,8 +106,8 @@ void printBoard(int ** const ppiBoard, const int iSize)
 
 void printSolutionCount(const int iSolutionCount)
 {
-        const int iStartX = (SCREEN_WIDTH - 24) / 2;
-        const int iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - 2) / 2);
+        const short iStartX = (SCREEN_WIDTH - 24) / 2;
+        const short iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - 2) / 2);
 
         _gotoxy(iStartX, iStartY);
         printf("Solutions found: %5d\n", iSolutionCount);

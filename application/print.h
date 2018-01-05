@@ -8,6 +8,8 @@
 #ifndef _PRINT_H_
 #define _PRINT_H_
 
+struct nQueens;
+
 /**
  * @brief Prints the header, menu and status line
  * @param psnQueens The current app state for the status line
