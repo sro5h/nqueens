@@ -45,7 +45,7 @@
  * @author Paul Meffle
  * @date 04.01.2018
  */
-void printHeader();
+void printHeader(void);
 
 /**
  * @brief A helper function that prints the menu
@@ -60,7 +60,7 @@ void printMenu(int iSolving);
  * @author Paul Meffle
  * @date 04.01.2018
  */
-void gotoEnd();
+void gotoEnd(void);
 
 void print(const struct nQueens * const psnQueens)
 {
@@ -117,7 +117,7 @@ void printSolutionCount(const int iSolutionCount)
         gotoEnd();
 }
 
-void printHeader()
+void printHeader(void)
 {
         _gotoxy(0, 0);
 
@@ -195,7 +195,7 @@ void printStatus(const struct nQueens * const psnQueens)
         printf(" ------------------------------------------------------------------------------");
 }
 
-void gotoEnd()
+void gotoEnd(void)
 {
         _gotoxy(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1);
 }

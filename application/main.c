@@ -22,7 +22,7 @@
  * @author Paul Meffle
  * @date 04.01.2018
  */
-int main()
+int main(void)
 {
         struct nQueens snQueens;
         init(&snQueens);
