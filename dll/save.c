@@ -20,49 +20,49 @@
 
 void resetFile(const char * const pcFilename)
 {
-        FILE *pFile;
+   FILE *pFile;
 
-        pFile = fopen(pcFilename, "w");
+   pFile = fopen(pcFilename, "w");
 
-        if (pFile)
-        {
-                fclose(pFile);
-        }
+   if (pFile)
+   {
+      fclose(pFile);
+   }
 }
 
 int appendToFile(const char * const pcFilename, const int ** const ppiBoard, const int iSize, const int iSolutionCount)
 {
-        FILE *pFile;
+   FILE *pFile;
 
-        pFile = fopen(pcFilename, "a");
+   pFile = fopen(pcFilename, "a");
 
-        if (!pFile)
-        {
-                return 0;
-        }
+   if (!pFile)
+   {
+      return 0;
+   }
 
-        fprintf(pFile, "Solution %d for %dx%d\n", iSolutionCount, iSize, iSize);
+   fprintf(pFile, "Solution %d for %dx%d\n", iSolutionCount, iSize, iSize);
 
-        for (int iR = 0; iR < iSize; ++iR)
-        {
-                for (int iC = 0; iC < iSize; ++iC)
-                {
-                        if (ppiBoard[iR][iC])
-                        {
-                                fprintf(pFile, " %c", SAVE_CHAR_QUEEN);
-                        }
-                        else
-                        {
-                                fprintf(pFile, " %c", SAVE_CHAR_NONE);
-                        }
-                }
+   for (int iR = 0; iR < iSize; ++iR)
+   {
+      for (int iC = 0; iC < iSize; ++iC)
+      {
+         if (ppiBoard[iR][iC])
+         {
+            fprintf(pFile, " %c", SAVE_CHAR_QUEEN);
+         }
+         else
+         {
+            fprintf(pFile, " %c", SAVE_CHAR_NONE);
+         }
+      }
 
-                fprintf(pFile, "\n");
-        }
+      fprintf(pFile, "\n");
+   }
 
-        fprintf(pFile, "\n");
+   fprintf(pFile, "\n");
 
-        fclose(pFile);
+   fclose(pFile);
 
-        return 1;
+   return 1;
 }
