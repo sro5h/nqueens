@@ -10,32 +10,32 @@
 
 int** allocBoard(const int iSize)
 {
-        int **ppiBoard = (int **) calloc(iSize, sizeof(int *));
+   int **ppiBoard = (int **) calloc(iSize, sizeof(int *));
 
-        if (!ppiBoard)
-        {
-                return NULL;
-        }
+   if (!ppiBoard)
+   {
+      return NULL;
+   }
 
-        for (int i = 0; i < iSize; ++i)
-        {
-                ppiBoard[i] = (int *) calloc(iSize, sizeof(int *));
+   for (int i = 0; i < iSize; ++i)
+   {
+      ppiBoard[i] = (int *) calloc(iSize, sizeof(int *));
 
-                if (!ppiBoard[i])
-                {
-                        return NULL;
-                }
-        }
+      if (!ppiBoard[i])
+      {
+         return NULL;
+      }
+   }
 
-        return ppiBoard;
+   return ppiBoard;
 }
 
 void freeBoard(int **ppiBoard, const int iSize)
 {
-        for (int i = 0; i < iSize; ++i)
-        {
-                free(ppiBoard[i]);
-        }
+   for (int i = 0; i < iSize; ++i)
+   {
+      free(ppiBoard[i]);
+   }
 
-        free(ppiBoard);
+   free(ppiBoard);
 }

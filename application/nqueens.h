@@ -25,8 +25,8 @@
  */
 enum AppMode
 {
-        Step,
-        Continuous,
+   Step,
+   Continuous,
 };
 
 /**
@@ -34,8 +34,8 @@ enum AppMode
  */
 enum SaveMode
 {
-        SaveOn,
-        SaveOff,
+   SaveOn,
+   SaveOff,
 };
 
 /**
@@ -43,8 +43,8 @@ enum SaveMode
  */
 struct AppTime
 {
-        clock_t lLastTimeStamp;
-        double dRuntime;
+   clock_t lLastTimeStamp;
+   double dRuntime;
 };
 
 /**
@@ -52,27 +52,27 @@ struct AppTime
  */
 struct nQueens
 {
-        /** @brief The chess board */
-        int **ppiBoard;
-        /** @brief The size of the chess board */
-        int iSize;
-        /** @brief The filename to save solutions */
-        char acFilename[64];
+   /** @brief The chess board */
+   int **ppiBoard;
+   /** @brief The size of the chess board */
+   int iSize;
+   /** @brief The filename to save solutions */
+   char acFilename[64];
 
-        /** @brief The current app mode */
-        enum AppMode eAppMode;
-        /** @brief The current save mode */
-        enum SaveMode eSaveMode;
-        /** @brief Whether the app should close */
-        int iShouldClose;
-        /** @brief Whether the app should solve */
-        int iShouldSolve;
+   /** @brief The current app mode */
+   enum AppMode eAppMode;
+   /** @brief The current save mode */
+   enum SaveMode eSaveMode;
+   /** @brief Whether the app should close */
+   int iShouldClose;
+   /** @brief Whether the app should solve */
+   int iShouldSolve;
 
-        /** @brief Data related to runtime measurements */
-        struct AppTime sAppTime;
+   /** @brief Data related to runtime measurements */
+   struct AppTime sAppTime;
 
-        /** @brief The current solution count */
-        int iSolutionCount;
+   /** @brief The current solution count */
+   int iSolutionCount;
 };
 
 /**

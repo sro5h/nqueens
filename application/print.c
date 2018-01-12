@@ -64,138 +64,138 @@ void gotoEnd(void);
 
 void print(const struct nQueens * const psnQueens)
 {
-        _clrscr();
+   _clrscr();
 
-        printMenu(psnQueens->iShouldSolve);
-        printStatus(psnQueens);
+   printMenu(psnQueens->iShouldSolve);
+   printStatus(psnQueens);
 }
 
 void printMessage(const char *pcMessage, const struct nQueens * const psnQueens)
 {
-        _clrscr();
+   _clrscr();
 
-        printStatus(psnQueens);
-        printHeader();
-        printf("  %s", pcMessage);
+   printStatus(psnQueens);
+   printHeader();
+   printf("  %s", pcMessage);
 }
 
 void printBoard(int ** const ppiBoard, const int iSize)
 {
-        const short iStartX = (SCREEN_WIDTH - 2 * (short)iSize) / 2;
-        const short iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - (short)iSize) / 2);
+   const short iStartX = (SCREEN_WIDTH - 2 * (short)iSize) / 2;
+   const short iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - (short)iSize) / 2);
 
-        for (int iR = 0; iR < iSize; ++iR)
-        {
-                _gotoxy(iStartX, iStartY + (short)iR);
+   for (int iR = 0; iR < iSize; ++iR)
+   {
+      _gotoxy(iStartX, iStartY + (short)iR);
 
-                for (int iC = 0; iC < iSize; ++iC)
-                {
-                        if (ppiBoard[iR][iC])
-                        {
-                                printf(" %c", CHAR_QUEEN);
-                        }
-                        else
-                        {
-                                printf(" %c", CHAR_NONE);
-                        }
-                }
-        }
+      for (int iC = 0; iC < iSize; ++iC)
+      {
+         if (ppiBoard[iR][iC])
+         {
+            printf(" %c", CHAR_QUEEN);
+         }
+         else
+         {
+            printf(" %c", CHAR_NONE);
+         }
+      }
+   }
 
-        gotoEnd();
+   gotoEnd();
 }
 
 void printSolutionCount(const int iSolutionCount)
 {
-        const short iStartX = (SCREEN_WIDTH - 24) / 2;
-        const short iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - 2) / 2);
+   const short iStartX = (SCREEN_WIDTH - 24) / 2;
+   const short iStartY = MENU_HEIGHT + ((SCREEN_HEIGHT - STATUS_HEIGHT - MENU_HEIGHT - 2) / 2);
 
-        _gotoxy(iStartX, iStartY);
-        printf("Solutions found: %5d\n", iSolutionCount);
-        _gotoxy(iStartX, iStartY + 1);
-        printf("Press any key to continue...\n");
+   _gotoxy(iStartX, iStartY);
+   printf("Solutions found: %5d\n", iSolutionCount);
+   _gotoxy(iStartX, iStartY + 1);
+   printf("Press any key to continue...\n");
 
-        gotoEnd();
+   gotoEnd();
 }
 
 void printHeader(void)
 {
-        _gotoxy(0, 0);
+   _gotoxy(0, 0);
 
-        printf(" ------------------------------------------------------------------------------\n");
-        printf(" |                                   nQueens                                  |\n");
-        printf(" ------------------------------------------------------------------------------\n");
+   printf(" ------------------------------------------------------------------------------\n");
+   printf(" |                                   nQueens                                  |\n");
+   printf(" ------------------------------------------------------------------------------\n");
 }
 
 void printMenu(int algorithmRunning)
 {
-        printHeader();
+   printHeader();
 
-        if (algorithmRunning)
-        {
-                printf("  [e]xit   [s]top                                                              \n");
-        }
-        else
-        {
-                printf("  [e]xit   [b]egin   s[a]ve mode   app [m]ode   change [f]ile   board [s]ize   \n");
-        }
+   if (algorithmRunning)
+   {
+      printf("  [e]xit   [s]top                                                              \n");
+   }
+   else
+   {
+      printf("  [e]xit   [b]egin   s[a]ve mode   app [m]ode   change [f]ile   board [s]ize   \n");
+   }
 }
 
 void printStatus(const struct nQueens * const psnQueens)
 {
-        _gotoxy(0, SCREEN_HEIGHT - STATUS_HEIGHT);
+   _gotoxy(0, SCREEN_HEIGHT - STATUS_HEIGHT);
 
-        printf(" ------------------------------------------------------------------------------\n");
+   printf(" ------------------------------------------------------------------------------\n");
 
-        printf(" | Status: ");
+   printf(" | Status: ");
 
-        /* Save mode status */
-        printf("save mode: ");
-        if (psnQueens->eSaveMode == SaveOn)
-        {
-                printf("on     ");
-        }
-        else
-        {
-                printf("off    ");
-        }
+   /* Save mode status */
+   printf("save mode: ");
+   if (psnQueens->eSaveMode == SaveOn)
+   {
+      printf("on     ");
+   }
+   else
+   {
+      printf("off    ");
+   }
 
-        /* App mode status */
-        printf("app mode: ");
-        if (psnQueens->eAppMode == Step)
-        {
-                printf("step    ");
-        }
-        else
-        {
-                printf("cont    ");
-        }
+   /* App mode status */
+   printf("app mode: ");
+   if (psnQueens->eAppMode == Step)
+   {
+      printf("step    ");
+   }
+   else
+   {
+      printf("cont    ");
+   }
 
-        /* Filename status */
-        printf("filename: %.18s", psnQueens->acFilename);
+   /* Filename status */
+   printf("filename: %.18s", psnQueens->acFilename);
 
-        /* Print ending bar */
-        _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 1);
-        printf("|\n");
+   /* Print ending bar */
+   _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 1);
+   printf("|\n");
 
-        printf(" |         ");
+   printf(" |         ");
 
-        /* Board size status */
-        printf("board size: %2d    ", psnQueens->iSize);
+   /* Board size status */
+   printf("board size: %2d    ", psnQueens->iSize);
 
-        /* Solution count  status */
-        printf("solutions: %5d  ", psnQueens->iSolutionCount);
+   /* Solution count  status */
+   printf("solutions: %5d  ", psnQueens->iSolutionCount);
 
-        /* Runtime in seconds status */
-        printf("runtime: %.3lfs", psnQueens->sAppTime.dRuntime);
+   /* Runtime in seconds status */
+   printf("runtime: %.3lfs", psnQueens->sAppTime.dRuntime);
 
-        /* Print ending bar */
-        _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 2);
-        printf("|\n");
+   /* Print ending bar */
+   _gotoxy(SCREEN_WIDTH - 2, SCREEN_HEIGHT - STATUS_HEIGHT + 2);
+   printf("|\n");
 
-        printf(" ------------------------------------------------------------------------------");
+   printf(" ------------------------------------------------------------------------------");
 }
 
 void gotoEnd(void)
 {
-        _gotoxy(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1);
+   _gotoxy(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1);
 }

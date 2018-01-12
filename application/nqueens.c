@@ -12,36 +12,36 @@
 
 void init(struct nQueens * const psnQueens)
 {
-        psnQueens->ppiBoard = NULL;
-        psnQueens->iSize = DEFAULT_BOARD_SIZE;
-        strncpy(psnQueens->acFilename, DEFAULT_FILENAME, sizeof(psnQueens->acFilename));
+   psnQueens->ppiBoard = NULL;
+   psnQueens->iSize = DEFAULT_BOARD_SIZE;
+   strncpy(psnQueens->acFilename, DEFAULT_FILENAME, sizeof(psnQueens->acFilename));
 
-        psnQueens->eAppMode = Step;
-        psnQueens->eSaveMode = SaveOff;
-        psnQueens->iShouldClose = 0;
-        psnQueens->iShouldSolve = 0;
+   psnQueens->eAppMode = Step;
+   psnQueens->eSaveMode = SaveOff;
+   psnQueens->iShouldClose = 0;
+   psnQueens->iShouldSolve = 0;
 
-        psnQueens->sAppTime.lLastTimeStamp = clock();
-        psnQueens->sAppTime.dRuntime = 0.0;
+   psnQueens->sAppTime.lLastTimeStamp = clock();
+   psnQueens->sAppTime.dRuntime = 0.0;
 
-        psnQueens->iSolutionCount = 0;
+   psnQueens->iSolutionCount = 0;
 
-        // Set console buffer size
-        HANDLE sHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-        COORD sBufferSize = { 80, 25 };
-        SetConsoleScreenBufferSize(sHandle, sBufferSize);
-        // Set console window size
-        SMALL_RECT sWindowSize = { 0, 0, 80, 25 };
-        SetConsoleWindowInfo(sHandle, 1, &sWindowSize);
+   // Set console buffer size
+   HANDLE sHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+   COORD sBufferSize = { 80, 25 };
+   SetConsoleScreenBufferSize(sHandle, sBufferSize);
+   // Set console window size
+   SMALL_RECT sWindowSize = { 0, 0, 80, 25 };
+   SetConsoleWindowInfo(sHandle, 1, &sWindowSize);
 }
 
 void resetBoard(int ** const ppiBoard, const int iSize)
 {
-        for (int iRow = 0; iRow < iSize; ++iRow)
-        {
-                for (int iCol = 0; iCol < iSize; ++iCol)
-                {
-                        ppiBoard[iRow][iCol] = 0;
-                }
-        }
+   for (int iRow = 0; iRow < iSize; ++iRow)
+   {
+      for (int iCol = 0; iCol < iSize; ++iCol)
+      {
+         ppiBoard[iRow][iCol] = 0;
+      }
+   }
 }

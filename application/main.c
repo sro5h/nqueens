@@ -24,57 +24,57 @@
  */
 int main(void)
 {
-        struct nQueens snQueens;
-        init(&snQueens);
+   struct nQueens snQueens;
+   init(&snQueens);
 
-        snQueens.ppiBoard = allocBoard(snQueens.iSize);
+   snQueens.ppiBoard = allocBoard(snQueens.iSize);
 
-        if (!snQueens.ppiBoard)
-        {
-                printf("Allocation failed, aborting...\n");
-                return -1;
-        }
+   if (!snQueens.ppiBoard)
+   {
+      printf("Allocation failed, aborting...\n");
+      return -1;
+   }
 
-        while (!snQueens.iShouldClose)
-        {
-                print(&snQueens);
+   while (!snQueens.iShouldClose)
+   {
+      print(&snQueens);
 
-                if (snQueens.iShouldSolve)
-                {
-                        // Clear the file first if save mode is on
-                        if (snQueens.eSaveMode == SaveOn)
-                        {
-                                resetFile(snQueens.acFilename);
-                        }
+      if (snQueens.iShouldSolve)
+      {
+         // Clear the file first if save mode is on
+         if (snQueens.eSaveMode == SaveOn)
+         {
+            resetFile(snQueens.acFilename);
+         }
 
-                        // Begin runtime measurements
-                        resetTime(&snQueens.sAppTime);
+         // Begin runtime measurements
+         resetTime(&snQueens.sAppTime);
 
-                        solve(0, &snQueens);
+         solve(0, &snQueens);
 
-                        if (snQueens.eAppMode == Continuous && snQueens.iShouldSolve)
-                        {
-                                printSolutionCount(snQueens.iSolutionCount);
-                                awaitInputSolve(&snQueens);
-                        }
+         if (snQueens.eAppMode == Continuous && snQueens.iShouldSolve)
+         {
+            printSolutionCount(snQueens.iSolutionCount);
+            awaitInputSolve(&snQueens);
+         }
 
-                        // Reset all solving related attributes
-                        // Prevent from solving again if all solutions were found
-                        snQueens.iShouldSolve = 0;
-                        snQueens.iSolutionCount = 0;
-                        resetTime(&snQueens.sAppTime);
-                        resetBoard(snQueens.ppiBoard, snQueens.iSize);
-                }
-                else
-                {
-                        awaitInput(&snQueens);
-                }
-        }
+         // Reset all solving related attributes
+         // Prevent from solving again if all solutions were found
+         snQueens.iShouldSolve = 0;
+         snQueens.iSolutionCount = 0;
+         resetTime(&snQueens.sAppTime);
+         resetBoard(snQueens.ppiBoard, snQueens.iSize);
+      }
+      else
+      {
+         awaitInput(&snQueens);
+      }
+   }
 
-        if (snQueens.ppiBoard)
-        {
-                freeBoard(snQueens.ppiBoard, snQueens.iSize);
-        }
+   if (snQueens.ppiBoard)
+   {
+      freeBoard(snQueens.ppiBoard, snQueens.iSize);
+   }
 
-        return 0;
+   return 0;
 }
